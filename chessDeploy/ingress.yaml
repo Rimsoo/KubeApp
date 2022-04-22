@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: kubeapp
+  labels:
+    name: kubeapp
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: rimso.intech.levitt.fr
+      http:
+        paths:
+        - pathType: Prefix
+          path: "/"
+          backend:
+            service:
+              name: kubeapp
+              port: 
+                number: 80
